@@ -1,0 +1,53 @@
+version: '3'
+services:
+  http:
+    build: dockerfile/apache/
+    ports:
+      - 8080:80
+    volumes:
+      - ../site:/var/www/html/
+    environment:
+      PHP_HOST: php-fpm:9000
+    links:
+      - php-fpm
+
+  php-fpm:
+    build: dockerfile/php-fpm/
+    volumes:
+      - ../site:/var/www/html/
+      - ./dockerfile/php-fpm/php-dev.ini:/usr/local/etc/php/php.ini:ro
+      - ./dockerfile/php-fpm/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini:ro
+    links:
+      - mariadb
+
+  mariadb:
+    image: mariadb:10.4
+    env_file:
+      - ./environment/mysql.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=lSj58osiU12kjdj43shaSDDz
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../databasesInit/mysql/:/docker-entrypoint-initdb.d:ro
+
+  mongodb:
+    image: mongo:4.2
+    env_file:
+      - environment/mongo.env
+    volumes:
+      - mongo-data:/data/db
+      - ../databasesInit/mongo:/docker-entrypoint-initdb.d:ro
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.0.2
+    ports:
+      - 8888:80
+    env_file:
+      - environment/phpmyadmin.env
+    links :
+      - mariadb
+
+volumes:
+  mysql-data:
+  mongo-data:

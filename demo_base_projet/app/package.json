@@ -1,0 +1,91 @@
+{
+  "name": "demo-symfony-react-mysql-mongo",
+  "version": "1.0.0",
+  "description": "A simple demo of a web app composed of symfony, react, mysql and mongo hosted on docker, with a multi-stage dev setup (dev, prod).",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start:dev": "webpack-dev-server --mode=development --open",
+    "build:dev": "webpack --mode=development --progress --profile --colors",
+    "build": "webpack --mode=production --colors",
+    "deploy": "cp -R public/* ../deploy/"
+  },
+  "keywords": [
+    "demo",
+    "react",
+    "symfony",
+    "mysql",
+    "mongo",
+    "docker"
+  ],
+  "author": "Rémi Venant",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@babel/runtime": "^7.10.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.10",
+    "bootstrap": "^4.5.0",
+    "classnames": "^2.2.6",
+    "mobx": "^5.15.2",
+    "mobx-react": "^6.1.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@apollo/react-testing": "^3.1.4",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-proposal-decorators": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@types/react": "^16.9.35",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.1",
+    "css-loader": "^3.5.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.0.1",
+    "jest-fetch-mock": "^3.0.3",
+    "node-fetch": "^2.6.0",
+    "react-hot-loader": "^4.12.21",
+    "react-test-renderer": "^16.13.1",
+    "sass": "^1.26.9",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|sass)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+      "./src/.setupTests.js"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Xdebug project",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "stopOnEntry": false,
+            "pathMappings": {
+                "/var/www/app/": "${workspaceFolder}/api/"
+            }
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
