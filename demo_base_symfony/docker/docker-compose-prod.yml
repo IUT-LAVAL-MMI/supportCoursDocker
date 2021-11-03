@@ -43,8 +43,9 @@ services:
       start_period: 20s
 
   symfony:
-    build:
-      context: ./symfony
+    image: fguntz/symfony:1.0
+    #build:
+    #  context: ./symfony
     env_file:
       - environment/prod/symfony.env
     volumes:

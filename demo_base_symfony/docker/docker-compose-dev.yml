@@ -31,8 +31,9 @@ services:
     restart: always
 
   symfony:
-    build:
-      context: ./symfony
+    image: fguntz/symfony:1.0
+    #build:
+    #  context: ./symfony
     env_file:
       - environment/dev/symfony.env
     volumes:

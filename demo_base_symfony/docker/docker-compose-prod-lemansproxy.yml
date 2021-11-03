@@ -43,12 +43,13 @@ services:
       start_period: 20s
 
   symfony:
-    build:
-      context: ./symfony
-      args:
-        - http_proxy=http://vproxy.univ-lemans.fr:3128
-        - https_proxy=http://vproxy.univ-lemans.fr:3128
-        - no_proxy=127.0.0.1,localhost
+    image: fguntz/symfony:1.0
+    #build:
+    #  context: ./symfony
+    #  args:
+    #    - http_proxy=http://vproxy.univ-lemans.fr:3128
+    #    - https_proxy=http://vproxy.univ-lemans.fr:3128
+    #    - no_proxy=127.0.0.1,localhost
     env_file:
       - environment/lemans-proxy.env
       - environment/prod/symfony.env
